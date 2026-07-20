@@ -68,6 +68,10 @@ java -jar target/Budglet-1.0-all.jar
 
 If running the project from IntelliJ, configure the required JavaFX VM options before launching the application.
 
+If the installation was successful, the application should display the following login screen:
+
+![Login Screen](images/login.png)
+
 ## Default Test Account
 
 When Budglet launches, the application seeds the database with sample data.
