@@ -4,28 +4,17 @@ Technical documentation portfolio for **Budglet**, a Java-based personal finance
 
 This repository contains technical documentation created for Budglet, a desktop application developed as a team project for a senior-level Software Engineering course at California State University San Marcos. The purpose of this repository is to demonstrate my technical writing skills by producing clear, organized documentation for a real software project.
 
----
-
 ## Project Overview
 
 Budglet is a desktop application designed to help users manage their personal finances by tracking income, expenses, budgets, and financial goals. The application provides tools for budgeting, transaction management, financial reporting, and account organization through an intuitive JavaFX interface.
 
----
-
 ## Table of Contents
 
-
-
 - [Screenshots](#screenshots)
-
 - [Technologies](#technologies)
-
 - [My Contributions](#my-contributions)
-
 - [Documentation Included](#documentation-included)
-
 - [Acknowledgments](#acknowledgments)
-
 
 ## Screenshots
 
@@ -44,8 +33,6 @@ Budglet is a desktop application designed to help users manage their personal fi
 ### Profile
 ![Profile](images/profile.png)
 
----
-
 ## Technologies
 
 - Java
@@ -53,8 +40,6 @@ Budglet is a desktop application designed to help users manage their personal fi
 - PostgreSQL
 - Maven
 - CSS
-
----
 
 ## My Contributions
 
@@ -68,8 +53,6 @@ My responsibilities during the project included:
 
 This repository expands upon that work by showcasing documentation created specifically for my technical writing portfolio.
 
----
-
 ## Documentation Included
 
 - [Installation Guide](INSTALL.md)
@@ -78,8 +61,6 @@ This repository expands upon that work by showcasing documentation created speci
 - [Database Documentation](DATABASE.md)
 - [Testing Guide](TESTING.md)
 - [Troubleshooting Guide](TROUBLESHOOTING.md)
-
----
 
 ## Acknowledgments
 
