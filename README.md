@@ -21,7 +21,7 @@ Budglet is a desktop application designed to help users manage their personal fi
 ![Calendar](images/calendar.png)
 
 ### Profile
-![Profile](images/[profile.png)
+![Profile](images/profile.png)
 
 
 ## Technologies
