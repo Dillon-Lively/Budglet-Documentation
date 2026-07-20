@@ -22,6 +22,8 @@ git clone <repository-url>
 cd BudgletProject
 ```
 
+this places you in the project's root directory, where the remaining setup steps will be performed.
+
 ### 2. Create the PostgreSQL database
 
 ```bash
@@ -48,7 +50,7 @@ DB_PASSWORD=your_password_here
 
 ## Running the Application
 
-### Option 1 - Windows Executable
+### Option 1: Windows Executable
 
 Run:
 
@@ -56,13 +58,13 @@ Run:
 dist/Budglet/Budglet.exe
 ```
 
-### Option 2 - Java JAR
+### Option 2: Java JAR
 
 ```bash
 java -jar target/Budglet-1.0-all.jar
 ```
 
-### Option 3 - IntelliJ IDEA
+### Option 3: IntelliJ IDEA
 
 If running the project from IntelliJ, configure the required JavaFX VM options before launching the application.
 
@@ -70,7 +72,7 @@ If running the project from IntelliJ, configure the required JavaFX VM options b
 
 When Budglet launches, the application seeds the database with sample data.
 
-Before credentials:
+Use the following defualt credentials to log in:
 
 Email:
 
@@ -88,9 +90,9 @@ password
 
 ### Database connection failed
 
--Verify PostgreSQL is running. 
--Verify the `.env` file contains the correct database credentials.
--Ensure the `budglet` database has been created. 
+- Verify PostgreSQL is running. 
+- Verify the `.env` file contains the correct database credentials.
+- Ensure the `budglet` database has been created. 
 
 ### JavaFX errors
 
@@ -100,4 +102,10 @@ If JavaFX modules cannot be found, verify that the JavaFX SDK is installed and c
 
 - Verify JDK 22 or later is installed.
 - Confirm the database schema has been imported successfully.
-- Verify the `.env` configuration. 
+- Verify the `.env` configuration.
+
+## Next Steps 
+
+After successfully launching Budglet, refer to the 
+[User Guide](USER_GUIDE.md)
+for information about creating accounts, managing budgets, and using the application's features.
