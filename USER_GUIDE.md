@@ -8,13 +8,13 @@ This guide explains the primary features of Budglet and provides instructions fo
 
 ## Table of Contents
 - [Getting Started](#getting-started)
-- [Logging In](#loggin-in)
+- [Logging In](#logging-in)
 - [Home Dashboard](#home-dashboard)
 - [Budgeting](#budgeting)
 - [Calendar](#calendar)
 - [Profile](#profile)
 - [Tips](#tips)
-- [Frequently Asled Questions](#frequently-asked-questions)
+- [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Getting Started
 
@@ -59,7 +59,7 @@ From this page, users can:
 - Create budgeting goals
 - Monitor spending progress
 - Compare current spending against budget limits
-- View financial information throught charts and visual summaries
+- View financial information through charts and visual summaries
 
 Regularly updating budget information helps maintain an accurate picture of overall financial health.
 
@@ -70,6 +70,15 @@ Regularly updating budget information helps maintain an accurate picture of over
 ## Calendar
 
 The calendar helps users stay organized by presenting financial events in chronological order.
+
+From this page, users can:
+
+- View scheduled financial events
+- Monitor upcoming payments
+- Track budgeting deadlines
+- Navigate between calendar views
+
+The calendar helps users stay organized by presenting financial events in chronological order. 
 
 ![Calendar](images/calendar.png)
 
@@ -86,16 +95,16 @@ From this page, users can:
 - Update profile settings
 - Review account-related information
 
-  ![Profile](images/profile.png)
+![Profile](images/profile.png)
 
-  # Tips
+  ## Tips
 
   To get the most out of Budglet:
 
-  - Review you dashboard regularly to monitor financial progress.
+  - Review your dashboard regularly to monitor financial progress.
   - Update budgets whenever income or expenses change.
-  - Record transactions consistently to improve reporting accuaracy.
-  - Use the calendar to stary aware of upcoming financial events.
+  - Record transactions consistently to improve reporting accuracy.
+  - Use the calendar to stay aware of upcoming financial events.
   - Review your budget summaries periodically to track long-term financial goals.
  
 ## Frequently Asked Questions 
@@ -124,7 +133,7 @@ Account information and settings can be accessed through the **Profile** page.
 
 ## Next Steps
 
-After becoming familiar with Budget's features, refer to the following documentation for additional information:
+After becoming familiar with Budglet's features, refer to the following documentation for additional information:
 
 - [Architecture Overview](ARCHITECTURE.md)
 - [Database Documentation](DATABASE.md)
