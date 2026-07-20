@@ -1,6 +1,6 @@
 # Budglet-Documentation
 
-Technical documentation portfolio for the Budglet, a Java-based personnal finance application. This pository contains technical documentation created for Budglet, a personnal finance application developed as a team project for a senior-level Software Engineering course at California State University San Marcos.
+Technical documentation portfolio for the Budglet, a Java-based personal finance application. This pository contains technical documentation created for Budglet, a personnal finance application developed as a team project for a senior-level Software Engineering course at California State University San Marcos.
 
 ## Project Overview
 
@@ -49,7 +49,3 @@ This repository expands upon that work by showcasing documentation created for t
 - [Database Documentation](DATABASE.md)
 - [Testing Guide](TESTING.md)
 - [Troubleshooting Guide](TROUBLESHOOTING.md)
-
-## Acknowledgments
-
-Budglet was developed as a team project for a senior-lefvel Software Engineering course at Califorina State University San Marcos. This repository focuses on documentation that I created for portfolio purposes.
