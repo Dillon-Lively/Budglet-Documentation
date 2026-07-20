@@ -1,18 +1,31 @@
-# Budglet-Documentation
+# Budglet Documentation
 
-Technical documentation portfolio for the Budglet, a Java-based personal finance application. This pository contains technical documentation created for Budglet, a personnal finance application developed as a team project for a senior-level Software Engineering course at California State University San Marcos.
+Technical documentation portfolio for **Budglet**, a Java-based personal finance application.
+
+This repository contains technical documentation created for Budglet, a desktop application developed as a team project for a senior-level Software Engineering course at California State University San Marcos. The purpose of this repository is to demonstrate my technical writing skills by producing clear, organized documentation for a real software project.
+
+---
 
 ## Project Overview
 
-Budglet is a desktop application designed to help users manage their personal finances by tracking income, expenses, bugets, and financial goals.
+Budglet is a desktop application designed to help users manage their personal finances by tracking income, expenses, budgets, and financial goals. The application provides tools for budgeting, transaction management, financial reporting, and account organization through an intuitive JavaFX interface.
+
+---
 
 ## Table of Contents
 
+
+
 - [Screenshots](#screenshots)
+
 - [Technologies](#technologies)
+
 - [My Contributions](#my-contributions)
+
 - [Documentation Included](#documentation-included)
+
 - [Acknowledgments](#acknowledgments)
+
 
 ## Screenshots
 
@@ -20,7 +33,7 @@ Budglet is a desktop application designed to help users manage their personal fi
 ![Login Screen](images/login.png)
 
 ### Home Dashboard
-![Homepage](images/homepage.png)
+![Home Dashboard](images/homepage.png)
 
 ### Budgeting
 ![Budgeting](images/budgeting.png)
@@ -31,23 +44,31 @@ Budglet is a desktop application designed to help users manage their personal fi
 ### Profile
 ![Profile](images/profile.png)
 
+---
 
 ## Technologies
+
 - Java
 - JavaFX
-- PostgressSQL
+- PostgreSQL
 - Maven
 - CSS
 
+---
+
 ## My Contributions
-My responsibilites on the project included:
+
+My responsibilities during the project included:
+
 - Quality assurance testing
 - Creating and validating mock transaction data
 - SQL testing and data validation
-- Team Collabration during development
+- Collaborating with team members throughout development
 - Contributing to project documentation
 
-This repository expands upon that work by showcasing documentation created for technical writing portfolio purposes. 
+This repository expands upon that work by showcasing documentation created specifically for my technical writing portfolio.
+
+---
 
 ## Documentation Included
 
@@ -57,3 +78,11 @@ This repository expands upon that work by showcasing documentation created for t
 - [Database Documentation](DATABASE.md)
 - [Testing Guide](TESTING.md)
 - [Troubleshooting Guide](TROUBLESHOOTING.md)
+
+---
+
+## Acknowledgments
+
+Budglet was developed as a team project for a senior-level Software Engineering course at California State University San Marcos.
+
+This repository focuses on documentation that I created to demonstrate my technical writing abilities and does not represent the complete software development work performed by the project team.
