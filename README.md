@@ -6,6 +6,14 @@ Technical documentation portfolio for the Budglet, a Java-based personal finance
 
 Budglet is a desktop application designed to help users manage their personal finances by tracking income, expenses, bugets, and financial goals.
 
+## Table of Contents
+
+- [Screenshots](#screenshots)
+- [Technologies](#technologies)
+- [My Contributions](#my-contributions)
+- [Documentation Included](#documentation-included)
+- [Acknowledgments](#acknowledgments)
+
 ## Screenshots
 
 ### Login Screen
