@@ -1,0 +1,438 @@
+# Database Documentation
+
+## Overview 
+
+Budglet uses a PostgreSQL relational database to manage user accounts, financial information, budgeting data, recurring events, and authentication. 
+
+The database is organized around the `users` table. Most application data belongs to an individual user and is connected through foreign-key relationships.
+
+Major responsibilities of the database included:
+
+- User authentication
+- Financial account management 
+- Transaction history
+- Budget tracking
+- Event scheduling 
+- Password recovery 
+
+
+## Table of Contents
+
+- [Database architecture](#database-architecture)
+- [Core Entities](#core-entities)
+- [Table Reference](#table-reference)
+- [Relationships](#relationships)
+- [Data Integrity](#data-integrity)
+- [Performance Considerations](#performance-consideration)
+- [Example Queries](#example-queries)
+- [Design Decisions](#design-decisions)
+
+
+
+# Database Architecture
+
+Budglet uses a PostgreSQL relational database centered around the `users` table. Financial accounts, transactions, budgets, events, and authentication records are organized into separate tables connected through primary and foreign-key relationships.
+
+
+
+# Core Entities
+
+The database is divided into several logical groups.
+
+## Authentication
+
+- users
+- password_reset_tokens
+
+These tables manage user registration, login credentials, and password recovery. 
+
+
+
+## Financial Accounts
+
+- accounts
+- account_numbers
+
+These tables store bank accounts and associated account information. 
+
+
+
+## Financial Records
+
+- transactions
+- budgets 
+- categories
+
+These tables contain the application's budgeting and expense-tracking data.
+
+
+
+## Scheduling 
+
+- events
+- recurring_transactions
+
+These tables support reminders, recurring events, and scheduled financial activity.
+
+
+
+# Table Reference
+
+## users
+
+Stores registered users of the application. 
+
+
+### Primary Key
+
+- id
+
+### Important Columns
+
+- username
+- email
+- password_hash
+- created_at
+
+### Related Tables
+
+- accounts
+- transactions
+- categories
+- events
+- password_reset_tokens
+
+
+
+## accounts
+
+Stores financial accounts owned by users.
+
+
+### Primary Key
+
+- user_id -> users.id
+
+### Important Columns
+
+- name
+- type
+- balance
+- created_at
+
+Supported account types include:
+
+- Checking
+- Saving
+- Credit
+- Investment
+- Loan
+
+
+
+## account_numbers 
+
+Stores internal and external account identifiers.
+
+
+### Primary Key
+
+- id
+
+### Important Columns
+
+- account_number
+- is_external
+- is_active
+
+Each account number must be unique.
+
+
+
+## transactions
+
+Stores every financial transaction recorded by the user.
+
+### Primary Key
+
+- id 
+
+
+### Foreign Keys
+
+-user_id -> users.id
+category_id -> categories.id
+
+### Important Columns
+
+- amount
+- type
+- source_account_id
+- destination_account_id
+- transaction_date
+- payee
+- recurring
+
+Supported transaction types included:
+
+- Income 
+- Expense
+- Transfer
+
+
+
+## Categories
+
+Stores custom spending categories.
+
+
+### Primary Key
+
+- id
+
+
+### Foreign Key 
+
+- user_id -> users.id
+
+
+### Important Columns
+
+- name
+- description
+- parent_category_id
+
+
+Each user may only create one category with the same name.
+
+
+
+ ## budgets
+
+ Stores budgeting goals and spending limits.
+
+
+ #### Primary key
+
+ - id
+
+
+### Important Columns
+
+- name 
+- budget_type
+- total
+- progress
+- period
+- end_date
+
+Stores calendar reminders and recurring financial events. 
+
+
+### Primary Key
+
+- id
+
+
+### Foreign Key
+
+- user_id -> users.id
+
+
+### Important Columns
+
+- title
+- priority
+- type
+- periodic_type
+- date
+- start_date
+- end_date
+
+The schema validates event priority and recurrence values using database check constraints. 
+
+## recurring_transactions
+
+Connects recurring transactions with scheduled calendar events.
+
+### Primary Key
+
+- id
+
+### Foreign Keys
+
+- event_id → events.id
+- transaction_id → transactions.id
+
+This table enables recurring financial activity within the application.
+
+
+
+## password_reset_tokens
+
+Stores temporary password recovery tokens.
+
+### Primary Key
+
+- id
+
+### Foreign Key
+
+- user_id → users.id
+
+### Important Columns
+
+- token
+- expires_at
+- created_at
+
+Each token is unique and expires after a specified time.
+
+
+
+# Relationships
+
+The database uses foreign keys to maintain relationships between major entities.
+
+```text
+Users
+│
+├── Accounts
+├── Transactions
+├── Categories
+├── Events
+└── Password Reset Tokens
+
+Categories
+└── Transactions
+
+Events
+└── Recurring Transactions
+
+Transactions
+└── Recurring Transactions
+```
+
+Deleting a user automatically removes related records through cascading foreign-key constraints.
+
+
+
+# Data Integrity
+
+Several database features help maintain consistent data.
+
+## Primary Keys
+
+Every table uses an integer primary key generated by a PostgreSQL sequence.
+
+## Unique Constraints
+
+Unique constraints prevent duplicate values for:
+
+- Username
+- Email address
+- Account numbers
+- Password reset tokens
+- Category names per user
+
+## Check Constraints
+
+Validation rules restrict values for:
+
+- Account types
+- Transaction types
+- Event priority
+- Event recurrence
+- Event completion status
+
+## Default Values
+
+Default values are automatically assigned for:
+
+- Account balances
+- Budget progress
+- Creation timestamps
+- Account status
+- Event completion status
+
+These constraints reduce invalid data before it reaches the application.
+
+
+
+# Performance Considerations
+
+Indexes are defined on the `transactions` table to improve searches by user and transaction date.
+
+These indexes support common operations such as:
+
+- Viewing transaction history
+- Displaying dashboard information
+- Sorting recent financial activity
+
+The schema currently defines two indexes using the same column combination (`user_id`, `transaction_date`). This appears to be redundant and could be reviewed during future optimization.
+
+
+
+# Example Queries
+
+### Retrieve all user accounts
+
+```sql
+SELECT *
+FROM accounts
+WHERE user_id = ?;
+```
+
+### Retrieve recent transactions
+
+```sql
+SELECT *
+FROM transactions
+ORDER BY transaction_date DESC;
+```
+
+### Calculate total expenses
+
+```sql
+SELECT SUM(amount)
+FROM transactions
+WHERE type = 'expense';
+```
+
+### Retrieve transactions by category
+
+```sql
+SELECT *
+FROM transactions
+WHERE category_id = ?;
+```
+
+### View active budgets
+
+```sql
+SELECT *
+FROM budgets;
+```
+
+
+
+# Design Decisions
+
+Several design choices improve the flexibility and maintainability of the database.
+
+- Integer primary keys simplify relationships between tables.
+- PostgreSQL sequences automatically generate unique identifiers.
+- Monetary values use `NUMERIC(12,2)` to preserve financial precision.
+- Foreign-key relationships help maintain referential integrity.
+- Cascading deletes automatically remove dependent records when parent records are deleted.
+- Database constraints prevent invalid data from being stored.
+
+
+
+## Next Steps
+
+For additional technical documentation, refer to:
+
+- [System Design](SYSTEM_DESIGN.md)
+- [Testing Guide](TESTING.md)
+- [Troubleshooting Guide](TROUBLESHOOTING.md)
